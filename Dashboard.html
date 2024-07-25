@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrimony Admin Panel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            height: 100vh;
+            background: #2d3748;
+            padding: 20px;
+            color: #ffffff;
+        }
+        .sidebar h2 {
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+        .sidebar .nav-link {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .sidebar .nav-link.active {
+            font-weight: 700;
+            background-color: #4a5568;
+            border-radius: 5px;
+        }
+        .content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+        .navbar {
+            margin-bottom: 20px;
+            background-color: #edf2f7;
+            border-radius: 10px;
+            padding: 10px 20px;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-body, .card-footer {
+            padding: 15px;
+        }
+        .card-footer {
+            background: rgba(0, 0, 0, 0.05);
+            border-top: none;
+        }
+        .card-footer h3 {
+            margin: 0;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .info-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .info-card {
+            flex: 1 1 100%;
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #edf2f7;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .info-card h2 {
+            margin-bottom: 0;
+        }
+        @media(min-width: 768px) {
+            .info-card {
+                flex: 1 1 calc(50% - 20px);
+                margin: 10px;
+            }
+        }
+        @media(min-width: 992px) {
+            .info-card {
+                flex: 1 1 calc(25% - 20px);
+            }
+        }
+        .editable {
+            background-color: #ffffff;
+            border: 1px solid #ced4da;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex flex-column flex-md-row">
+        <div class="sidebar">
+            <h2>Matrimony Admin</h2>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#" data-target="dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-target="RegisteredUsers">Registered Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-target="members">Members</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-target="Premium_Members">Premium Members</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-target="non-premium_Members">Non-premium Members</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-target="Edit">Edit</a>
+                </li>
+            </ul>
+        </div>
+        <div class="content w-100">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="#">Admin Dashboard</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-danger text-white" href="login.html" data-target="logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                <div id="dashboard" class="content-section active">
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <h2>Today's Money</h2>
+                            <p>$53,000</p>
+                        </div>
+                        <div class="info-card">
+                            <h2>Today's Users</h2>
+                            <p>2,300</p>
+                        </div>
+                        <div class="info-card">
+                            <h2>New Clients</h2>
+                            <p>+3,052</p>
+                        </div>
+                        <div class="info-card">
+                            <h2>Total Sales</h2>
+                            <p>$173,000</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+                            <div class="card bg-primary text-white">
+                                <div class="card-body">Registered Users</div>
+                                <div class="card-footer">
+                                    <h3>1500</h3>
+                                    <a class="text-white" href="#">More Info</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+                            <div class="card bg-success text-white">
+                                <div class="card-body">Members</div>
+                                <div class="card-footer">
+                                    <h3>500</h3>
+                                    <a class="text-white" href="#">More Info</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+                            <div class="card bg-warning text-white">
+                                <div class="card-body">Premium Members</div>
+                                <div class="card-footer">
+                                    <h3>200</h3>
+                                    <a class="text-white" href="#">More Info</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+                            <div class="card bg-info text-white">
+                                <div class="card-body">Male</div>
+                                <div class="card-footer">
+                                    <h3>200</h3>
+                                    <a class="text-white" href="#">More Info</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+                            <div class="card bg-danger text-white">
+                                <div class="card-body">Female</div>
+                                <div class="card-footer">
+                                    <h3>200</h3>
+                                    <a class="text-white" href="#">More Info</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="RegisteredUsers" class="content-section">
+                    <h1>Registered Users</h1>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John Doe</td>
+                                <td>john@example.com</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jane Smith</td>
+                                <td>jane@example.com</td>
+                                <td>Female</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="members" class="content-section">
+                    <h1>Members</h1>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Membership Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John Doe</td>
+                                <td>john@example.com</td>
+                                <td>Premium</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jane Smith</td>
+                                <td>jane@example.com</td>
+                                <td>Non-premium</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="Premium_Members" class="content-section">
+                    <h1>Premium Members</h1>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John Doe</td>
+                                <td>john@example.com</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jane Smith</td>
+                                <td>jane@example.com</td>
+                                <td>Female</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="non-premium_Members" class="content-section">
+                    <h1>Non-premium Members</h1>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Mark Taylor</td>
+                                <td>mark@example.com</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Emily Johnson</td>
+                                <td>emily@example.com</td>
+                                <td>Female</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="Edit" class="content-section">
+                    <h1>Edit Members</h1>
+                    <table id="editTable" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>Membership Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td contenteditable="true" class="editable">John Doe</td>
+                                <td contenteditable="true" class="editable">john@example.com</td>
+                                <td contenteditable="true" class="editable">Male</td>
+                                <td contenteditable="true" class="editable">Premium</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td contenteditable="true" class="editable">Jane Smith</td>
+                                <td contenteditable="true" class="editable">jane@example.com</td>
+                                <td contenteditable="true" class="editable">Female</td>
+                                <td contenteditable="true" class="editable">Non-premium</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td contenteditable="true" class="editable">Mark Taylor</td>
+                                <td contenteditable="true" class="editable">mark@example.com</td>
+                                <td contenteditable="true" class="editable">Male</td>
+                                <td contenteditable="true" class="editable">Non-premium</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td contenteditable="true" class="editable">Emily Johnson</td>
+                                <td contenteditable="true" class="editable">emily@example.com</td>
+                                <td contenteditable="true" class="editable">Female</td>
+                                <td contenteditable="true" class="editable">Non-premium</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button id="saveChanges" class="btn btn-primary">Save Changes</button>
+                </div>
+                <div id="logout" class="content-section">
+                    <h1>Logout</h1>
+                    <!-- Add logout content here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Navigation script
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(this.getAttribute('data-target')).classList.add('active');
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Redirect to login.html on logout
+        document.querySelector('.nav-link[data-target="logout"]').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = 'login.html';
+        });
+
+        // Save changes made in the Edit section
+        document.getElementById('saveChanges').addEventListener('click', function() {
+            const editTable = document.getElementById('editTable');
+            const rows = editTable.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            const dashboardTables = [
+                document.querySelector('#RegisteredUsers table tbody'),
+                document.querySelector('#members table tbody'),
+                document.querySelector('#Premium_Members table tbody'),
+                document.querySelector('#non-premium_Members table tbody')
+            ];
+
+            // Clear all dashboard tables
+            dashboardTables.forEach(tbody => tbody.innerHTML = '');
+
+            // Populate dashboard tables with updated data
+            for (let i = 0; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                const id = cells[0].innerText;
+                const name = cells[1].innerText;
+                const email = cells[2].innerText;
+                const gender = cells[3].innerText;
+                const membership = cells[4].innerText;
+
+                const newRow = `<tr>
+                    <td>${id}</td>
+                    <td>${name}</td>
+                    <td>${email}</td>
+                    <td>${gender}</td>
+                </tr>`;
+
+                const newMemberRow = `<tr>
+                    <td>${id}</td>
+                    <td>${name}</td>
+                    <td>${email}</td>
+                    <td>${membership}</td>
+                </tr>`;
+
+                if (membership === 'Premium') {
+                    dashboardTables[2].innerHTML += newRow;
+                } else {
+                    dashboardTables[3].innerHTML += newRow;
+                }
+
+                dashboardTables[0].innerHTML += newRow;
+                dashboardTables[1].innerHTML += newMemberRow;
+            }
+
+            alert('Changes saved successfully!');
+        });
+    </script>
+</body>
+</html>

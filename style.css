@@ -1,0 +1,693 @@
+/* body  {
+    font-family: Arial, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    background-color: rgb(245, 193, 124);
+    
+   
+    
+} 
+img{
+    width: 100%;
+    height: 100vh;   
+}
+
+.navbar {
+    position: absolute;
+    top: 4%;
+    width: 100%;
+    font-family: Pacifico;
+    transition: 0.7s all;
+    margin-right: 0px;
+}
+
+.nav-link {
+    color: #fff;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: px;
+    list-style-type: none;
+    display: inline-block;
+}
+.navbar-toggler navbar-dark{
+    background-color: lightgrey;
+    width: 300px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+  }
+
+.navbar-brand{
+    color: #fff;
+    cursor: pointer;
+    list-style-type: none;
+    display: inline-block;
+}
+
+.nav-link {
+    margin-right: 3em !important;
+   
+}
+
+.nav-link:hover {
+    color : rgb(243, 172, 80); 
+    transition: 0.5s all;
+    background-color: rgb(255, 255, 255);  
+    border-radius: 10%;
+    padding: 5px 20px;
+}
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.description {
+    left: 70%;
+    position: absolute;
+    top: 60%;
+    transform: translate(-50%, -55%);
+    text-align: left;
+    font-family: Dancing Script;
+    font-weight: 100;
+}
+
+.description h1{
+    color: rgb(243, 172, 80);
+    font-family: Arial, sans-serif;
+}
+.description h1 span{
+    color: wheat ;
+}
+
+.description p {
+    color: #fff;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+.description a{
+    background-color: #04AA6D; 
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10%;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.description a:hover {
+    background: 1px solid #fff;
+    background: #fff;
+    color: #000;
+}  */
+ 
+body  {
+    font-family: Arial, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    background-color: rgb(245, 193, 124);
+} 
+
+img{
+    width: 100%;
+    height: 100vh;
+}
+
+
+.navbar {
+    position: absolute;
+    top: 4%;
+    width: 100%;
+    /* font-family: Pacifico; */
+    transition: 0.7s all;
+    margin-right: 0px;
+}
+.nav-item{
+    align-items: center;
+    padding-left: 30px;
+    
+}
+
+
+.nav-link {
+    font-family: Arial, sans-serif;
+    color:#fff;
+    font-size: 15px;
+    cursor: pointer;
+    list-style-type: none;
+    display: inline-block;
+}
+
+
+.navbar-brand{
+    color: #fff;
+    cursor: pointer;
+    font-size: 50px;
+    padding-left: 20px;
+    list-style-type: none;
+    display: inline-block;
+    position: relative;
+}
+
+.nav-link {
+    margin-right: 3em !important;
+}
+
+.nav-link:hover {
+    color : rgb(243, 172, 80); 
+    transition: 0.5s all;
+    background-color: rgb(255, 255, 255);  
+    border-radius: 10%;
+    padding: 5px 20px;
+}
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.description {
+    left: 74%;
+    position: absolute;
+    top: 60%;
+    transform: translate(-50%, -55%);
+    text-align: left;
+    /* font-family: Dancing Script; */
+    font-weight: 10;
+}
+.description h1{
+    font-size: 30px;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+}
+.description h2{
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+    font-size: 70px;
+    font-family: Arial, sans-serif;
+}
+.description h2 span{
+    color: wheat ;
+}
+
+.description p {
+    margin-top: 1px;
+    color: #fff;
+    font-size: 1rem;
+    font-size: large;
+    line-height: 1.5;
+}
+
+.description a{
+    background-color:   rgb(243, 172, 80); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5%;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.description a:hover {
+    background: 10px solid #fff;
+    background: #fff;
+    color: #000;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 576px) {
+    img{
+        height: 60vh;
+    }
+    .description {
+        height: 70vh;
+        position: relative;
+        margin-top: 30%;
+        left: 5%;
+        transform: translate(-100%, 0);
+        text-align: center;
+    }
+
+    .description h1 {
+        font-size: 1.5rem;
+    }
+
+    .description p {
+        font-size: 10rem;
+        padding-top: 0%;
+        position: relative;
+    }
+
+    .description a {
+        font-size: 1rem;
+        padding: 8px 20px;
+    }
+    nav{
+        background-color:  rgb(243, 172, 80);
+        
+    }
+
+
+    .navbar {
+        position: relative;
+        top: 0;
+    }
+
+    .navbar-collapse {
+        justify-content: center;
+    }
+    .nav-item{
+        padding-left: 205%;
+        /* padding-right: ; */
+    }
+    .nav-link:hover{
+        cursor: pointer;
+        background-color: red;
+    }
+}
+
+
+
+
+
+
+.about-section {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+
+
+
+.about-section {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 100px auto;
+}
+
+.about-content {
+    flex: 1;
+    
+    padding: 20px;
+    text-align: left;
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.about-content h2 span {
+    color: #e77c40;
+}
+
+.about-content p {
+    font-size: 1rem;
+    color: #666;
+    margin: 20px 0;
+}
+
+.about-content .see-more {
+    color: #e77c40;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.about-images {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-images img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.details-card {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 1000;
+    max-width: 800px;
+}
+
+.details-card h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.details-card p {
+    font-size: 1rem;
+    color: #666;
+    margin: 20px 0;
+}
+
+.details-card button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: #e77c40;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+    }
+
+    .about-images {
+        flex-direction: column;
+    }
+
+    .about-images img {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+
+.testimonials-section {
+    padding: 80px;
+    text-align: center;
+    background-color: white;
+}
+
+.testimonials-section h2 {
+    font-size: 2.5rem;
+    color: #e77c40;
+    margin-bottom: 50px;
+}
+
+.testimonials-section p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.testimonials-container {
+    display: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Remove display: none; */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.testimonials {
+    
+    display: flex;
+    overflow-x: hidden;
+    /* flex-direction: row; */
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 20px 0;
+    flex-wrap: nowrap; /* Prevents wrapping */
+}
+
+.testimonial-card {
+    background-color: rgb(245, 193, 124);
+    border: 3px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 350px;
+    text-align: center;
+    padding: 30px;
+    transition: transform 0.3s;
+    flex-shrink: 0; /* Prevents shrinking */
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
+
+.testimonial-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.testimonial-card h3 {
+    font-size: 1.2rem;
+    color: #e77c40;
+    margin-bottom: 10px;
+}
+
+.testimonial-card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.scroll-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.scroll-button.left {
+    left: 10px;
+}
+
+.scroll-button.right {
+    right: 10px;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    .testimonials {
+        flex-direction: column;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        max-height: 400px; /* Set a max-height for better scrolling */
+    }
+
+    .scroll-button {
+        display: none; /* Hide scroll buttons on mobile */
+    }
+
+    .testimonial-card {
+        width: auto; /* Make the testimonial card take full width on mobile */
+        margin: 0 auto;
+    }
+}
+
+
+
+/* 
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
+
+.testimonial-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.testimonial-card h3 {
+    font-size: 1.2rem;
+    color: #e77c40;
+    margin-bottom: 10px;
+}
+
+.testimonial-card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.scroll-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%);
+    font-size: 50rem;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.scroll-button.left {
+    left: 10px;
+}
+
+.scroll-button.right {
+    right: 10px;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    .testimonials {
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-height: 400px; /* Set a max-height for better scrolling */
+    }
+
+    .scroll-button {
+        display: none; /* Hide scroll buttons on mobile */
+    }
+
+    .testimonial-card {
+        width: auto; /* Make the testimonial card take full width on mobile */
+        margin: 0 auto; /* Center the card */
+    }
+} */ */
+
+
+
+
+.heading {
+    font-family: cursive;
+    text-align: center;
+    margin:50px;
+    color: #ff5858;
+    /* font-family: Dancing Script; */
+} 
+
+.features {
+    top: 1%;
+    margin: 2em auto;
+    padding: em;
+    position: relative;
+    /* font-family: Dancing Script; */
+}
+.features h1{
+    top: 0%;
+}
+/* .weight{
+    margin-top: 0%;
+    position: relative;
+} */
+.feature-title {
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    
+    text-transform: uppercase;
+}
+
+.para{
+    margin-left: 45%;
+    padding-top: 5px;
+}
+.features img {
+    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 16px;
+    width: 40%;
+    margin-top: 4%;
+    float: left;
+}
+.features .form-control,
+.features input {
+    border-radius: 0;
+}
+
+.features .btn {
+    background-color: #589b37;
+    border: 1px solid #589b37;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.features .btn:hover {
+    background-color: #333;
+    border: 1px solid #333;
+}
+
+.page-footer {
+    background-color: #222;
+    color: #ccc;
+    padding: 60px 0 30px;
+    /* font-family: Dancing Script; */
+}
+
+.footer-copyright {
+    color: #666;
+    padding: 40px 0;
+}
+
+@media (max-width: 575.98px) {
+    .description {
+      left: 0;
+      padding: 0 15px;
+      position: absolute;
+      top: 10%;
+      transform: none;
+      text-align: center;
+    }
+    
+    .description h1 {
+      font-size: 2em;
+    }
+    
+    .description p {
+      font-size: 1.2rem;
+    }
+    
+    .features {
+      margin: 0;
+    }
+  }
+  
+
+
+
+
+
+
+
+  

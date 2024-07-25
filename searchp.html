@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Profiles</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body, html {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .profile-card {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 130px;
+            object-fit: cover;
+        }
+
+        .profile-info h5 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .profile-info p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* .btn-outline-primary {
+            border-color: #007bff;
+            color: #007bff;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: white;
+        } */
+
+        .search-page-body {
+            background-color: white;
+        }
+
+        .search-page-header {
+            background-color: #ffbc03;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-top: 100px; /* Ensure content is below the navbar */
+        }
+
+        .custom-navbar {
+            background-color: white !important;
+            font-family: sans-serif;
+        }
+
+        .navbar-nav li {
+            margin-left: 55px;
+        }
+
+        .search-tag {
+            text-align: center;
+            font-size: 23px;
+        }
+
+        .search-tag p {
+            font-size: 35px;
+            margin: 2% 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: black;
+        }
+
+        .search-tag h3 {
+            font-size: 70px;
+            color: rgb(255, 17, 0);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .search-page-bodycontent {
+            width: 100%;
+            height: 600px;
+        }
+
+        .search-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            padding: 3% 0;
+            font-size: 22px;
+            font-family: sans-serif;
+            background-color: #f8cc53;
+        }
+
+        .search-bar input,
+        .search-bar select {
+            width: 200px;
+            height: 50px;
+            margin: 3px 0 0 15px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .search-bar .match-button {
+            width: 200px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            height: 55px;
+            text-align: center;
+            border: none;
+            background-size: 300% 100%;
+            border-radius: 50px;
+            transition: all .4s ease-in-out;
+            background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+            box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+        }
+
+        .search-bar .match-button:hover {
+            background-position: 100% 0;
+            color: white;
+        }
+
+        .search-bar .match-button:focus {
+            outline: none;
+        }
+
+        .footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 60px 0 30px;
+            /* font-family: ; */
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .footer-top .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-top .social-media {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .footer-column {
+            width: 45%;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        .profile-card-container {
+            margin-top: 20px; /* Add space between search bar and profile cards */
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .navbar-nav li {
+                margin-left: 15px;
+            }
+            .search-page-header {
+                height: auto;
+                padding: 20px 0;
+            }
+
+            .search-tag p {
+                font-size: 25px;
+            }
+
+            .search-tag h3 {
+                font-size: 50px;
+            }
+
+            .search-bar {
+                flex-direction: column;
+                align-items: center;
+                padding: 5% 0;
+            }
+
+            .search-bar > div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .search-bar input,
+            .search-bar select,
+            .search-bar .match-button {
+                margin: 15px 0;
+                width: 80%;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-column {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-nav li {
+                margin-left: 10px;
+            }
+            .nav-link{
+                padding-left: 10%;
+            }
+
+            .search-tag p {
+                font-size: 20px;
+            }
+
+            .search-tag h3 {
+                font-size: 40px;
+            }
+
+            .search-bar input,
+            .search-bar select,
+            .search-bar .match-button {
+                width: 90%;
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto; /* 10% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%; /* Could be more or less, depending on screen size */
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row; /* Flexbox for image and details side by side */
+        }
+
+        .close {
+            color: #aaa;
+            float: left;
+            font-size: 28px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-profile-pic {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .modal-profile-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 20px;
+        }
+
+        .modal-profile-details p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-0" style="background-color: palegoldenrod;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light custom-navbar">
+            <a class="navbar-brand" href="trust.html"><img src="images/logo11.png" style="width: 100px; height: auto;"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="main2.html"><b>Home</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><b>Search</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><b>Help</b></a></li>
+                        
+                </ul>
+            </div>
+        </nav>
+
+        <header class="search-page-header">
+            <div class="search-tag">
+                <h3>Find Your Match</h3>
+                <p>Search for profiles that match your preferences</p>
+            </div>
+        </header>
+
+        <div class="search-bar">
+            <div>
+                <label for="looking-for">Looking for</label>
+                <select id="looking-for" class="form-control">
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div>
+                <label for="age-from">Age from</label>
+                <input type="number" id="age-from" class="form-control" placeholder="Age from">
+            </div>
+            <div>
+                <label for="age-to">Age to</label>
+                <input type="number" id="age-to" class="form-control" placeholder="Age to">
+            </div>
+            <div>
+                <label for="location">Location</label>
+                <input type="text" id="location" class="form-control" placeholder="Location">
+            </div>
+            <button class="match-button">Find Match</button>
+        </div>
+
+        <div class="container profile-card-container d-flex flex-column align-items-center">
+            <div class="col-md-8 profile-card-page">
+                <!-- Profile cards will be inserted here by JavaScript -->
+            </div>
+
+            <div class="pagination">
+                <button class="btn btn-primary" id="prevPageBtn">Previous</button>
+                <button class="btn btn-primary" id="nextPageBtn">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalProfileContent">
+                <!-- Profile content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="logo">
+                    <img src="path/to/logo.png" alt="True Life" />
+                    <p class="tagline">Finding love, one match at a time.</p>
+                </div>
+                <div class="social-media">
+                    <a href="https://facebook.com" target="_blank"><img src="path/to/facebook-icon.png" alt="Facebook" /></a>
+                    <a href="https://instagram.com" target="_blank"><img src="path/to/instagram-icon.png" alt="Instagram" /></a>
+                    <a href="https://tiktok.com" target="_blank"><img src="path/to/tiktok-icon.png" alt="TikTok" /></a>
+                    <a href="https://youtube.com" target="_blank"><img src="path/to/youtube-icon.png" alt="YouTube" /></a>
+                    <a href="https://twitter.com" target="_blank"><img src="path/to/twitter-icon.png" alt="Twitter" /></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Menu</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><span>Phone: </span>+91 223 344 5566</li>
+                        <li><span>Email: </span><a href="mailto:truelife@gmail.com">truelife@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2024, All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const profiles = [
+            {
+                name: 'Yogesh Y',
+                status: 'Online 3h ago | You & Him | Astro',
+                details: 'Age: 24 | Height: 5\'6" | Hindu, Kongu Vellala Gounder | Tamil',
+                location: 'Coimbatore, Tamil Nadu | Mechanical / Production Engineer',
+                description: 'I am a Bachelors in Engineering. Employed as a Mechanical / Production Engineer...',
+                imgSrc: 'images/user.png'
+            },
+            {
+                name: 'Veeraletchimi A',
+                status: 'Online 5h ago | You & Him | Astro',
+                details: 'Age: 25 | Height: 5\'2" | Hindu, Adi Dravida | Tamil',
+                location: 'Madurai, Tamil Nadu | Travel & Transport Professional',
+                description: 'I am looking for a suitable partner for my son. He is currently living in India...',
+                imgSrc: 'a37be5b9709175f1527761157463ec38.jpg'
+            },
+            {
+                name: 'Siva K',
+                status: 'Online 4h ago | You & Him | Astro',
+                details: 'Age: 24 | Height: 5\'3" | Hindu, Jangam | Tamil',
+                location: 'Thanjavur, Tamil Nadu | Mechanical / Production Engineer',
+                description: 'Here are some things that would help you know me better. In terms of education, I have acquired my Bachelor...',
+                imgSrc: 'profile3.jpg'
+            },
+            {
+                name: 'Mukesh K',
+                status: 'Online 8h ago | You & Him | Astro',
+                details: 'Age: 24 | Height: 5\'6" | Hindu, Chettiar | Tamil',
+                location: 'Dindigul, Tamil Nadu | Army',
+                description: 'I am looking for a suitable partner for my son. He has completed his Bachelor...',
+                imgSrc: 'profile4.jpg'
+            },
+            {
+                name: 'Thennarasu A',
+                status: 'Online 5h ago | You & Him | Astro',
+                details: 'Age: 24 | Height: 5\'6" | Hindu, Boya/Nayak/Naik | Tamil',
+                location: 'Trichirappalli, Tamil Nadu | Human Resources Professional',
+                description: 'Here is a little bit about my brother. He has completed his PGD Finance. He is focused about...',
+                imgSrc: 'profile5.jpg'
+            },
+            {
+                name: 'Thennarasu A',
+                status: 'Online 5h ago | You & Him | Astro',
+                details: 'Age: 24 | Height: 5\'6" | Hindu, Boya/Nayak/Naik | Tamil',
+                location: 'Trichirappalli, Tamil Nadu | Human Resources Professional',
+                description: 'Here is a little bit about my brother. He has completed his PGD Finance. He is focused about...',
+                imgSrc: 'profile5.jpg'
+            }
+        ];
+
+        let currentPage = 1;
+        const profilesPerPage = 4;
+
+        function displayProfiles() {
+            const start = (currentPage - 1) * profilesPerPage;
+            const end = start + profilesPerPage;
+            const profilesToDisplay = profiles.slice(start, end);
+
+            const profileCardPage = document.querySelector('.profile-card-page');
+            profileCardPage.innerHTML = '';
+
+            profilesToDisplay.forEach((profile, index) => {
+                const profileCard = document.createElement('div');
+                profileCard.classList.add('profile-card', 'p-4');
+                profileCard.innerHTML = `
+                    <div class="d-flex">
+                        <img src="${profile.imgSrc}" class="profile-pic mr-3" alt="Profile Picture">
+                        <div class="profile-info">
+                            <h5>${profile.name}</h5>
+                            <p>${profile.status}</p>
+                            <p>${profile.details}</p>
+                            <p>${profile.location}</p>
+                            <p>${profile.description}</p>
+                            <button class="btn btn-outline-primary btn-sm" onclick="openModal(${start + index})">Connect Now</button>
+                        </div>
+                    </div>
+                `;
+                profileCardPage.appendChild(profileCard);
+            });
+        }
+
+        function updatePaginationButtons() {
+            document.getElementById('prevPageBtn').disabled = currentPage === 1;
+            document.getElementById('nextPageBtn').disabled = currentPage === Math.ceil(profiles.length / profilesPerPage);
+        }
+
+        document.getElementById('prevPageBtn').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                displayProfiles();
+                updatePaginationButtons();
+            }
+        });
+
+        document.getElementById('nextPageBtn').addEventListener('click', () => {
+            if (currentPage < Math.ceil(profiles.length / profilesPerPage)) {
+                currentPage++;
+                displayProfiles();
+                updatePaginationButtons();
+            }
+        });
+
+        function openModal(profileIndex) {
+            const modal = document.getElementById("profileModal");
+            const modalContent = document.getElementById("modalProfileContent");
+
+            const profile = profiles[profileIndex];
+            modalContent.innerHTML = `
+                <div class="d-flex justify-content-center">
+                    <img src="${profile.imgSrc}" class="modal-profile-pic" alt="Profile Picture">
+                    <div class="modal-profile-details">
+                        <h5>${profile.name}</h5>
+                        <p>${profile.status}</p>
+                        <p>${profile.details}</p>
+                        <p>${profile.location}</p>
+                        <p>${profile.description}</p>
+                        <p>Additional information about the profile...</p>
+                        <button class="btn btn-primary mt-3">Connect Now</button>
+                    </div>
+                </div>
+            `;
+
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        document.querySelector(".close").onclick = function() {
+            document.getElementById("profileModal").style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            const modal = document.getElementById("profileModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Initial display
+        displayProfiles();
+        updatePaginationButtons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/inulute_icn.ico" type="image/x-icon" />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <title>UPI inulute@boi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            user-select: none;
+            background-image: url("/assets/background.svg");
+            height: auto;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color:  #f8cc53;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 600px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-size: 15px;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-align: center;
+            flex: 1;
+            margin: 5px;
+        }
+
+        .nav-link:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .qr-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 10px 5%;
+            max-width: 350px;
+            width: 100%;
+            margin-top: 70px; /* Add margin-top to avoid being hidden under the navbar */
+        }
+
+        .qr-code img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .upi-id {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .upi-id-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px; 
+        }
+
+        .upi-id strong {
+            color: #007bff;
+            user-select: text;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .copy-button {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            margin-top: 10px;
+            border-radius: 5px;
+            height: min-content;
+            cursor: pointer;
+        }
+
+        .copy-button:hover {
+            background-color: #0056b3;
+        }
+
+        .upi-id p {
+            margin: 0;
+        }
+
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .upi-icon {
+            width: 40px;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        .proceed-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 50px;
+        }
+
+        .proceed-button:hover {
+            background-color: #218838;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 400px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            z-index: 1001;
+        }
+
+        .popup h2 {
+            margin-top: 0;
+        }
+
+        .popup p {
+            margin: 20px 0;
+        }
+
+        .popup input[type="file"] {
+            margin-bottom: 20px;
+        }
+
+        .popup .submit-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1rem;
+            margin: 7% 0 0 0;
+        }
+
+        .popup .submit-button:hover {
+            background-color: #0056b3;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav-link {
+                flex: 1;
+                margin: 5px 0;
+            }
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="navbar">
+            <a href="main.html" class="nav-link">Home</a>
+            <a href="searchnp.html" class="nav-link">Search</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="help.html" class="nav-link">Help</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="qr-container">
+            <div class="qr-code">
+                <img src="images/qr-code-for-scanning-free-vector.jpg" alt="UPI QR Code">
+            </div>
+            <div class="upi-id">
+                <p>Scan the QR code or use the UPI ID:</p>
+                <div class="upi-id-content">
+                    <strong id="upi-id">upi@id</strong>
+                    <button id="copy-button" class="copy-button">Copy</button>
+                    <lottie-player 
+                        src="https://lottie.host/2b51d7af-7099-49f5-93df-f8190dde11bb/WU9eejAueC.json"
+                        background="#FFFFFF"
+                        speed="1.5"
+                        loop
+                        autoplay
+                        direction="1"
+                        mode="normal" class="upi-icon"
+                    ></lottie-player>
+                </div>
+            </div>
+        </div>
+    </div>
+    <center><button id="proceed-button" class="proceed-button">Proceed</button></center>
+
+    <div class="popup-overlay" id="popup-overlay"></div>
+    <div class="popup" id="popup">
+        <center><h2 style="margin: 5%;">Payment Confirmation</h2></center>
+        <input type="file" id="payment-screenshot" accept="image/*" style="margin:20px 20px 20px 27%;"></center>
+        <p style="margin: 15px; text-align: center;">You have successfully completed your payment process and it will take 2 to 3 days to validate..kindly cooperate!!!</p>
+        <center><button id="submit-button" class="submit-button">Submit</button></center>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const copyButton = document.getElementById("copy-button");
+            const upiIdText = document.getElementById("upi-id");
+            const proceedButton = document.getElementById("proceed-button");
+            const popup = document.getElementById("popup");
+            const popupOverlay = document.getElementById("popup-overlay");
+            const submitButton = document.getElementById("submit-button");
+
+            copyButton.addEventListener("click", function () {
+                const textToCopy = upiIdText.textContent;
+                
+                const tempInput = document.createElement("input");
+                tempInput.value = textToCopy;
+                document.body.appendChild(tempInput);
+                
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+                
+                copyButton.textContent = "Copied!";
+                
+                setTimeout(function () {
+                    copyButton.textContent = "Copy";
+                }, 2500);
+            });
+
+            document.addEventListener("contextmenu", function(event) {
+                event.preventDefault();
+            });
+
+            proceedButton.addEventListener("click", function() {
+                popup.style.display = "block";
+                popupOverlay.style.display = "block";
+            });
+
+            popupOverlay.addEventListener("click", function() {
+                popup.style.display = "none";
+                popupOverlay.style.display = "none";
+            });
+
+            submitButton.addEventListener("click", function() {
+                // Implement your submission logic here (e.g., sending the file to the server)
+
+                // Redirect to main.html
+                window.location.href = "main2.html";
+            });
+        });
+    </script>
+</body>
+</html>

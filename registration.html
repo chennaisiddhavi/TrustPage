@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('images/1623461.webp') no-repeat center center;
+            background-size: cover;
+            color: #343a40;
+            margin: 0;
+            padding-top: 100px; /* Add padding for the fixed header */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+    display: flex;
+    justify-content: space-between; /* Ensure logo and nav are on the same line */
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #f8cc53;
+    padding: 10px 20px;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.header-content img {
+    width: 100px;
+    height: auto;
+}
+
+nav {
+    margin-left: auto; /* Pushes the nav to the right */
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 1000;
+}
+
+nav ul li a:hover {
+    color: black;
+}
+
+        .tab-link.active {
+            text-decoration: underline;
+        }
+        .form-container {
+            padding: 50px;
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 0 10px rgba(232, 37, 37, 0.1);
+            border-radius: 10px;
+            margin-top: 40px;
+            margin-bottom: 10%;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        label {
+            display: block;
+            margin-top: 8px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        .error input, .error select, .error textarea {
+            border: 2px solid red;
+        }
+        .error-message {
+            color: red;
+            display: none;
+        }
+        .error .error-message {
+            display: block;
+        }
+        button {
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        @media (max-width: 576px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                margin-top: 10px;
+            }
+            nav ul li {
+                margin: 5px 0;
+            }
+            .form-container {
+                margin-top: 50px;
+                padding: 15px;
+            }
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="images/logo11.png" alt="Logo" width="100px " height="auto">
+            
+            <nav>
+                <ul>
+                    <li class="tab-link active" data-tab="profile-details"><a href="#profile-details">Profile Details</a></li>
+                    <li class="tab-link" data-tab="career-details"><a href="#career-details">Career Details</a></li>
+                    <li class="tab-link" data-tab="lifestyle-family"><a href="#lifestyle-family">Lifestyle & Family</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <!-- Profile Details Section -->
+        <div id="profile-details" class="tab-content active">
+            <h2>Hi! You are joining the Best Matchmaking Experience.</h2>
+            <form id="profile-form">
+                <div class="form-group">
+                    <label for="name">Name </label>
+                    <input type="text" id="name" name="name" required>
+                    <span class="error-message">Please enter your name</span>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth *</label>
+                    <input type="date" id="dob" name="dob" required>
+                    <span class="error-message">Please enter your date of birth</span>
+                </div>
+                <div class="form-group">
+                    <label for="mother-tongue">Mother Tongue *</label>
+                    <select id="mother-tongue" name="mother-tongue" required>
+                        <option value="">Select</option>
+                        <option value="hindi">Hindi</option>
+                        <option value="english">English</option>
+                        <option value="tamil">Tamil</option>
+                        <option value="telugu">Telugu</option>
+                        <option value="bengali">Bengali</option>
+                        <option value="marathi">Marathi</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                    <span class="error-message">Please select your mother tongue</span>
+                </div>
+                <div class="form-group">
+                    <label for="religion">Religion *</label>
+                    <select id="religion" name="religion" required>
+                        <option value="">Select</option>
+                        <option value="hindu">Hindu</option>
+                        <option value="muslim">Muslim</option>
+                        <option value="christian">Christian</option>
+                        <option value="sikh">Sikh</option>
+                        <option value="buddhist">Buddhist</option>
+                        <option value="jain">Jain</option>
+                        <option value="other">Other</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                    <span class="error-message">Please select your religion</span>
+                </div>
+                <div class="form-group">
+                    <label for="marital-status">Marital Status *</label>
+                    <select id="marital-status" name="marital-status" required>
+                        <option value="">Select</option>
+                        <option value="single">Single</option>
+                        <option value="divorced">Divorced</option>
+                        <option value="widowed">Widowed</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                    <span class="error-message">Please select your marital status</span>
+                </div>
+                <div class="form-group">
+                    <label for="height">Height (in inches) *</label>
+                    <select id="height" name="height" required>
+                        <option value="">Select</option>
+                        <option value="58">4'10" (58 inches)</option>
+                        <option value="59">4'11" (59 inches)</option>
+                        <option value="60">5'0" (60 inches)</option>
+                        <option value="61">5'1" (61 inches)</option>
+                        <option value="62">5'2" (62 inches)</option>
+                        <option value="63">5'3" (63 inches)</option>
+                        <option value="64">5'4" (64 inches)</option>
+                        <option value="65">5'5" (65 inches)</option>
+                        <option value="66">5'6" (66 inches)</option>
+                        <option value="67">5'7" (67 inches)</option>
+                        <option value="68">5'8" (68 inches)</option>
+                        <option value="69">5'9" (69 inches)</option>
+                        <option value="70">5'10" (70 inches)</option>
+                        <option value="71">5'11" (71 inches)</option>
+                        <option value="72">6'0" (72 inches)</option>
+                        <option value="73">6'1" (73 inches)</option>
+                        <option value="74">6'2" (74 inches)</option>
+                        <option value="75">6'3" (75 inches)</option>
+                        <option value="76">6'4" (76 inches)</option>
+                        <!-- Add more height options as needed -->
+                    </select>
+                    <span class="error-message">Please select your height</span>
+                </div>
+                <button type="button" class="next-tab">Next</button>
+            </form>
+        </div>
+        <!-- Career Details Section -->
+        <div id="career-details" class="tab-content">
+            <h2>Hi! You are joining the Best Matchmaking Experience.</h2>
+            <form id="career-form">
+                <div class="form-group">
+                    <label for="education">Education *</label>
+                    <input type="text" id="education" name="education" required>
+                    <span class="error-message">Please enter your education</span>
+                </div>
+                <div class="form-group">
+                    <label for="occupation">Occupation *</label>
+                    <input type="text" id="occupation" name="occupation" required>
+                    <span class="error-message">Please enter your occupation</span>
+                </div>
+                <div class="form-group">
+                    <label for="income">Annual Income *</label>
+                    <input type="number" id="income" name="income" required>
+                    <span class="error-message">Please enter your annual income</span>
+                </div>
+                <div class="form-group">
+                    <label for="work-location">Work Location *</label>
+                    <input type="text" id="work-location" name="work-location" required>
+                    <span class="error-message">Please enter your work location</span>
+                </div>
+                <button type="button" class="prev-tab">Previous</button>
+                <button type="button" class="next-tab">Next</button>
+            </form>
+        </div>
+        <!-- Lifestyle & Family Section -->
+        <div id="lifestyle-family" class="tab-content">
+            <h2>Hi! You are joining the Best Matchmaking Experience.</h2>
+            <form id="lifestyle-form">
+                <div class="form-group">
+                    <label for="smoking">Smoking *</label>
+                    <select id="smoking" name="smoking" required>
+                        <option value="">Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="occasionally">Occasionally</option>
+                    </select>
+                    <span class="error-message">Please select your smoking habit</span>
+                </div>
+                <div class="form-group">
+                    <label for="drinking">Drinking *</label>
+                    <select id="drinking" name="drinking" required>
+                        <option value="">Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="occasionally">Occasionally</option>
+                    </select>
+                    <span class="error-message">Please select your drinking habit</span>
+                </div>
+                <div class="form-group">
+                    <label for="diet">Diet *</label>
+                    <select id="diet" name="diet" required>
+                        <option value="">Select</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="non-vegetarian">Non-Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                    </select>
+                    <span class="error-message">Please select your diet</span>
+                </div>
+                <div class="form-group">
+                    <label for="family-type">Family Type *</label>
+                    <select id="family-type" name="family-type" required>
+                        <option value="">Select</option>
+                        <option value="joint">Joint</option>
+                        <option value="nuclear">Nuclear</option>
+                    </select>
+                    <span class="error-message">Please select your family type</span>
+                </div>
+                <div class="form-group">
+                    <label for="family-values">Family Values *</label>
+                    <select id="family-values" name="family-values" required>
+                        <option value="">Select</option>
+                        <option value="traditional">Traditional</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="liberal">Liberal</option>
+                    </select>
+                    <span class="error-message">Please select your family values</span>
+                </div>
+                <button type="button" class="prev-tab">Previous</button>
+                <button type="submit" id="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const nextButtons = document.querySelectorAll('.next-tab');
+            const prevButtons = document.querySelectorAll('.prev-tab');
+            const submitButton = document.getElementById('submit-btn');
+
+            // Function to switch tabs
+            function showTab(tabId) {
+                tabContents.forEach(content => content.classList.remove('active'));
+                tabLinks.forEach(link => link.classList.remove('active'));
+
+                document.getElementById(tabId).classList.add('active');
+                document.querySelector(`.tab-link[data-tab="${tabId}"]`).classList.add('active');
+            }
+
+            // Add event listeners to tab links
+            tabLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    showTab(this.dataset.tab);
+                });
+            });
+
+            // Add event listeners to next buttons
+            nextButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const currentTab = this.closest('.tab-content').id;
+                    const nextTab = tabLinks[Array.from(tabLinks).findIndex(link => link.dataset.tab === currentTab) + 1].dataset.tab;
+                    showTab(nextTab);
+                });
+            });
+
+            // Add event listeners to previous buttons
+            prevButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const currentTab = this.closest('.tab-content').id;
+                    const prevTab = tabLinks[Array.from(tabLinks).findIndex(link => link.dataset.tab === currentTab) - 1].dataset.tab;
+                    showTab(prevTab);
+                });
+            });
+
+            // Add event listener to submit button
+            submitButton.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                // Collect data from all forms
+                const profileFormData = new FormData(document.getElementById('profile-form'));
+                const careerFormData = new FormData(document.getElementById('career-form'));
+                const lifestyleFormData = new FormData(document.getElementById('lifestyle-form'));
+
+                const allData = {
+                    ...Object.fromEntries(profileFormData.entries()),
+                    ...Object.fromEntries(careerFormData.entries()),
+                    ...Object.fromEntries(lifestyleFormData.entries())
+                };
+
+                // Submit the data to the server
+                fetch('/save-details', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(allData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    alert('Form submitted successfully!');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error submitting form');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

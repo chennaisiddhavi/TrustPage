@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            background-color: #626262;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+        .login-container h2 {
+            margin: 0 0 20px;
+            color: rgb(255, 255, 255);
+            text-align: center;
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px 10px 10px 40px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .input-group i {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #aaa;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(20, 18, 18);
+            color: #dbdbdb;
+            font-size: 16px;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        .login-btn:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 20px;
+            }
+            .input-group input,
+            .login-btn {
+                font-size: 14px;
+            }
+        }
+    </style>
+    <script>
+        function handleLogin(event){
+            event.preventDefault();
+            // Mock login logic with hardcoded credentials
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (username === 'user' && password === 'password') {
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Invalid username or password');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>ADMIN LOGIN</h2>
+        <form onsubmit="handleLogin(event)">
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="login-btn">LOGIN</button>
+        </form>
+    </div>
+</body>
+</html>

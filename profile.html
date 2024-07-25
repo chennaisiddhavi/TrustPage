@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 60%;
+            margin: 70px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header, .navbar {
+            background-color: white;
+           
+            color: rgb(0, 0, 0);
+        }
+       
+        .nav-link {
+            
+            margin-right: 60px;
+        }
+        .navbar-collapse{
+            padding-top: 10;
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .profile-header img {
+            width: 150px;
+            height: 150px;
+        }
+        .profile-header div {
+            flex: 1;
+            padding-left: 20px;
+        }
+        .profile-header div h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .profile-header div p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+        .profile-header div span {
+            display: block;
+            margin: 5px 0;
+        }
+        .profile-header div .details {
+            font-size: 16px;
+        }
+        .actions {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .actions button {
+            background-color: #c40c4c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .section-title {
+            background-color: #e9f5e9;
+            padding: 10px;
+            font-size: 20px;
+            margin-top: 20px;
+            color: green;
+        }
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .details-table th, .details-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        .contact-details {
+            margin-top: 20px;
+        }
+        .profile-pic-wrapper {
+            position: relative;
+            text-align: center;
+        }
+        .edit-pic {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffffffcc;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .edit-pic input {
+            display: none;
+        }
+        .editable {
+            border: 1px solid #ccc;
+            padding: 5px;
+            width: calc(100% - 12px);
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        .editable[disabled] {
+            background-color: #f4f4f4;
+            color: #666;
+            cursor: not-allowed;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            .profile-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .profile-header div {
+                padding-left: 0;
+                margin-top: 10px;
+            }
+        }
+        .photo-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .photo-card {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            width: 45%;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .photo-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .photo-card .card-details {
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .photo-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><img src="images/logo11.png" style="width: 100px; height: auto;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="main.html"><b>Home</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="searchnp.html"><b>Search</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-warning text-white" href="payment.html">Upgrade</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="header">
+       
+    </div>
+    <div class="container">
+        <form id="profile-form">
+            <div class="profile-header">
+                <div class="profile-pic-wrapper">
+                    <img id="profile-pic" src="a37be5b9709175f1527761157463ec38.jpg" alt="Profile Picture">
+                    <div class="edit-pic">
+                        <label for="profile-pic-input">Edit</label>
+                        <input type="file" id="profile-pic-input" accept="image/*" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <button type="button" onclick="toggleEdit()">Edit</button>
+                <button type="button" onclick="saveProfile()" disabled>Save</button>
+            </div>
+            <div class="section-title">About</div>
+            <textarea id="about-me" class="editable" placeholder="A few words about me" disabled>Not Specified</textarea>
+            <div class="section-title">Basic Details</div>
+            <table class="details-table">
+                <tr>
+                    <th>Profile created for</th>
+                    <td><input type="text" id="profile-created-for" class="editable" placeholder="Profile Created For" value="Sister" disabled></td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td><input type="text" id="name" class="editable" placeholder="name" value="Ram" disabled></td>
+                </tr>
+                <tr>
+                    <th>DataOfBirth</th>
+                    <td><input type="text" id="sibling-age" class="editable" placeholder="date" value="01.01.2000" disabled></td>
+                </tr>
+                <tr>
+                    <th>MotherTongue</th>
+                    <td><input type="text" id="MotherTongue" class="editable" placeholder="name" value="English" disabled></td>
+                </tr>
+                <tr>
+                    <th>Religion</th>
+                    <td><input type="text" id="religion" class="editable" placeholder="name" value="Hindu" disabled></td>
+                </tr>
+                <tr>
+                    <th>Marital Status</th>
+                    <td><input type="text" id="marital-status" class="editable" placeholder="Marital Status" value="Never married" disabled></td>
+                </tr>
+                <tr>
+                    <th>Height</th>
+                    <td><input type="text" id="sibling-height" class="editable" placeholder="Height" value="5 Ft 5 In / 165 Cms" disabled></td>
+                </tr>
+            </table>
+            <div class="section-title">Career Details</div>
+            <table class="details-table">
+                <tr>
+                    <th>Country</th>
+                    <td><input type="text" id="name" class="editable" placeholder="Country" value="India" disabled></td>
+                </tr>
+                <tr>
+                    <th>HighestDegree</th>
+                    <td><input type="text" id="degree" class="editable" placeholder="HighestDegree" value="MBBS" disabled></td>
+                </tr>
+                <tr>
+                    <th>EmployedIn</th>
+                    <td><input type="text" id="employedin" class="editable" placeholder="employedin" value="Microsoft" disabled></td>
+                </tr>
+                <tr>
+                    <th>AnnualIncome</th>
+                    <td><input type="number" id="annualincome" class="editable" placeholder="annualincome" value="₹500000" disabled></td>
+                </tr>
+            </table>
+            <div class="section-title">Lifestyle & Family</div>
+            <table class="details-table">
+                <tr>
+                    <th>Contact Number</th>
+                    <td><input type="text" id="contact-number" class="editable" placeholder="Contact Number" value="900808455" disabled></td>
+                </tr>
+                <tr>
+                    <th>Parent Contact</th>
+                    <td><input type="text" id="parent-contact" class="editable" placeholder="Parent Contact" value="Available" disabled></td>
+                </tr>
+                <tr>
+                    <th>Chat Status</th>
+                    <td><input type="text" id="chat-status" class="editable" placeholder="Chat Status" value="online" disabled></td>
+                </tr>
+            </table>
+        </form>
+    
+    <script>
+        document.getElementById('profile-pic-input').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profile-pic').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function toggleEdit() {
+            const isDisabled = document.getElementById('name').disabled;
+            const elements = document.querySelectorAll('.editable');
+            elements.forEach(element => {
+                element.disabled = !isDisabled;
+            });
+            document.querySelector('.actions button[onclick="saveProfile()"]').disabled = isDisabled;
+            document.getElementById('profile-pic-input').disabled = !isDisabled;
+        }
+
+        function saveProfile() {
+            const profileData = {
+                name: document.getElementById('name').value,
+                profileCreatedBy: document.getElementById('profile-created-by').value,
+                lastOnline: document.getElementById('last-online').innerText,
+                age: document.getElementById('age').value,
+                height: document.getElementById('height').value,
+                religion: document.getElementById('religion').value,
+                caste: document.getElementById('caste').value,
+                location: document.getElementById('location').value,
+                education: document.getElementById('education').value,
+                profession: document.getElementById('profession').value,
+                income: document.getElementById('income').value,
+                aboutMe: document.getElementById('about-me').value,
+                profileCreatedFor: document.getElementById('profile-created-for').value,
+                siblingAge: document.getElementById('sibling-age').value,
+                weight: document.getElementById('weight').value,
+                physicalStatus: document.getElementById('physical-status').value,
+                eatingHabits: document.getElementById('eating-habits').value,
+                smokingHabits: document.getElementById('smoking-habits').value,
+                siblingName: document.getElementById('sibling-name').value,
+                siblingHeight: document.getElementById('sibling-height').value,
+                bodyType: document.getElementById('body-type').value,
+                maritalStatus: document.getElementById('marital-status').value,
+                drinkingHabits: document.getElementById('drinking-habits').value,
+                contactNumber: document.getElementById('contact-number').value,
+                parentContact: document.getElementById('parent-contact').value,
+                chatStatus: document.getElementById('chat-status').value
+            };
+            console.log('Profile Data:', profileData);
+
+            // Save data to the database or server here
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+<script>
+    document.getElementById('form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the form from submitting the traditional way
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+    
+        const data = { email, password, confirmPassword };
+    
+        fetch('http://localhost:5501/signup', { // Update URL to correct port
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+            if (data === 'Signup successful') {
+                window.location.href = 'main.html'; // Redirect on success
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+    </script>    
+</html>
