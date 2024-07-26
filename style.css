@@ -126,8 +126,8 @@ img{
     margin-right: 0px;
 }
 .nav-item{
-    align-items: center;
-    padding-left: 30px;
+    /* align-items: center;
+    padding-left: 0px; */
     
 }
 
@@ -135,7 +135,7 @@ img{
 .nav-link {
     font-family: Arial, sans-serif;
     color:#fff;
-    font-size: 15px;
+    font-size: 20px;
     cursor: pointer;
     list-style-type: none;
     display: inline-block;
@@ -158,7 +158,7 @@ img{
 
 .nav-link:hover {
     color : rgb(243, 172, 80); 
-    transition: 0.5s all;
+    transition: 0.4s all;
     background-color: rgb(255, 255, 255);  
     border-radius: 10%;
     padding: 5px 20px;
@@ -177,14 +177,14 @@ img{
     font-weight: 10;
 }
 .description h1{
-    font-size: 30px;
+    font-size: 20px;
     color: #e0e0e0;
     font-family: Arial, sans-serif;
 }
 .description h2{
     color: rgb(255, 255, 255);
-    margin-bottom: 20px;
-    font-size: 70px;
+    margin-bottom: 30px;
+    font-size: 50px;
     font-family: Arial, sans-serif;
 }
 .description h2 span{
@@ -203,12 +203,12 @@ img{
     background-color:   rgb(243, 172, 80); /* Green */
     border: none;
     color: white;
-    padding: 15px 30px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     border-radius: 5%;
     display: inline-block;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .description a:hover {
@@ -303,7 +303,6 @@ img{
 
 .about-content {
     flex: 1;
-    
     padding: 20px;
     text-align: left;
 }
