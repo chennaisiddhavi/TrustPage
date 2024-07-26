@@ -202,101 +202,7 @@ li a {
 }
 
 /* Responsive Containers */
-.containers {
-    display: flex;
-    flex-wrap: wrap; /* Adjusted to wrap containers */
-    justify-content: space-between;
-    padding: 100px;
-    justify-content: center;
-}
-
-.container1, .container2, .container3, .container4, .container5, .container6 {
-    background-color: #fcb263;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    width: calc(100% - 10px);
-    margin-top: 25px;
-    margin-bottom: 25px;
-    max-width: 1350px; /* Adjusted maximum width */
-    min-width: 1250px; /* Adjusted minimum width */
-    min-height: 490px; /* Adjusted minimum height */
-    display: flex;
-    text-align: justify;
-}
-.about1{
-    margin-left: 200px;
-}
-.container1 img{
-    width: 10px;
-    height: 5%;
-    margin-top: 40px;
-    /* margin-left: 40px; */
-    padding-left: 200px;
-    margin-bottom: 0px;
-}
-/* .div-image {
-    width: 100%;
-    height: 390px;
-    overflow: hidden; 
-} */
-.about3{
-    margin-left: 200px;
-    
-}
-.container3 img{
-    width: 10px;
-    height: 5%;
-    margin-top: 30px;
-    /* margin-left: 40px; */
-    padding-left: 200px;
-    margin-bottom: 0px;
-}
-.about1 h1, .about2 h1, .about3 h1, .about4 h1, .about5 h1, .about6 h1 {
-    text-align: center;
-}
-
-.container1 img, .container5 img .container2 img {
-    margin: 10% 0 0 0;
-}
-
-.container2 img, .container4 img, .container6 img {
-    margin-top: 30px   ;
-    padding-left: 70px;
-    height: 5%;
-    width: 10px;
-}
-
-
-.div-image img {
-    width: 100%;
-    height: 80%;
-    object-fit: cover;
-}
-
-.about1, .about2, .about3, .about4, .about5, .about6 {
-    padding: 50px 75px 0 0;
-    width: 720px; /* Adjusted width */
-}
-
-.about2, .about4, .about6 {
-    margin-left: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* .about2 img, .about4 img, .about6 img{
-    margin-top: 60px;
-} */
-
-.about1 h1, .about2 h1, .about3 h1, .about4 h1, .about5 h1, .about6 h1 {
-    margin: 0 0 50px 0;
-}
-
-.about1 h1,.about3 h1,.about5 h1{
-    margin: 30px 0 50px 0;
-}
+/* . */
 
 @media (max-width: 768px) {
     .headerImage {
@@ -474,12 +380,23 @@ h1 {
         font-size: 1em; /* Smaller font size for small phones */
     }
 }
+.about-section1 {
+    background-color:#f6ae6f;
+    padding: 50px 0;
+    text-align: center;
+    min-height: 20px;
+    min-width: 400px;
+    max-width: 1200px;
+    border-radius: 13px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    margin:2% 0 7% 0;
+}
 
 .about-section {
     background-color:#f6ae6f;
     padding: 30px 0;
     text-align: center;
-    min-height: 500px;
+    min-height: 20px;
     min-width: 300px;
     max-width: 1200px;
     border-radius: 13px;
@@ -488,10 +405,17 @@ h1 {
 }
 
 .about-container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between; /* Adjusted to space between items */
+    align-items: center;
+    margin-left: 0;
+    margin-right: 0;
+}
+.about-container1 {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
     align-items: center;
     margin-left: 0;
     margin-right: 0;
@@ -500,18 +424,39 @@ h1 {
 .about-image,
 .about-details {
     flex: 1;
-    padding: 0 20px;
+    padding: 0 10px;
+    max-width: calc(50% - 40px); /* Calculate max-width with padding */
+    box-sizing: border-box; /* Ensures padding is included in max-width */
+}
+.about-image1,
+.about-details {
+    flex: 1;
+    padding: 0 10px;
     max-width: calc(50% - 40px); /* Calculate max-width with padding */
     box-sizing: border-box; /* Ensures padding is included in max-width */
 }
 
+
 .about-image img {
-    max-width: 100%;
+    max-width: 80%;
+    height: 80%;
+    /* display: block; */
+     /* Center the image horizontally */
+    border-radius: 5px;
+    margin-top: ;
+   
+}
+.b-image1{
+width: 80%;
+}
+.about-image .b-image img {
+    width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto; /* Center the image horizontally */
+    margin: 0 0; /* Center the image horizontally */
     border-radius: 5px;
-    padding-left: 20px;
+    padding-left: 0px;
+    margin-left: 0%;
 }
 
 .about-details {
